@@ -1,0 +1,21 @@
+<p>© 2026 ZettaCloud. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const spend = document.getElementById('spend');
+const rate = document.getElementById('rate');
+function updateSavings() {
+  const amount = Math.max(0, Number(spend.value) || 0);
+  const monthly = amount * Number(rate.value) / 100;
+  document.getElementById('monthly').textContent =
+    monthly.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  document.getElementById('annual').textContent =
+    (monthly*12).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+}
+spend.addEventListener('input', updateSavings);
+rate.addEventListener('change', updateSavings);
+updateSavings();
+</script>
+</body>
+</html>
